@@ -1,4 +1,4 @@
-abstract public class Cuenta{
+public class Cuenta{
     private double balance_inicial;
     private tipo_de_extraccion tipo;
     
@@ -13,7 +13,9 @@ abstract public class Cuenta{
         balance_inicial = balance_inicial + monto;
     }
 
-    public abstract void extraccion(double monto, tipo_de_extraccion tipo);
+    public virtual void extraccion(double monto, tipo_de_extraccion tipo){
+
+    }
 
 }
 
@@ -35,7 +37,20 @@ public class Cuenta_corriente_en_dolares: Cuenta{
 
 public class Caja_ahorro_en_pesos: Cuenta{
     public override void extraccion(double monto, tipo_de_extraccion tipo){
-        
+        if(Balance_inicial <= 0){
+            Console.WriteLine("No se puede realizar la extraccion, no tiene fondos");
+        }else{
+            if(tipo == tipo_de_extraccion.cajero_automatico){
+                if(monto <= 10000){
+                    Balance_inicial = Balance_inicial - monto;
+                }else{
+                    
+                }
+                
+            }else{
+                if 
+            }
+        }
     }
 }
 
